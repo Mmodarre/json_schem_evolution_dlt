@@ -36,7 +36,7 @@ def create_raw_tables(tbl_name):
         df = (spark.readStream.format("cloudFiles").option("cloudFiles.format","json")
                 .option("cloudFiles.schemaEvolutionMode", "rescue")
                 .option("cloudFiles.inferColumnTypes", "true")
-                .load("/Volumes/ie_ui/airwx/raw_datasets/jsonexamplesimple3/")
+                .load("/Volumes/databricks_demo_catalog/databricks_demo_schema/demo_volume/customers_json/")
                 .withColumn("parsed_rescue", parse_json_udf(F.col("_rescued_data"))))
         return df
 

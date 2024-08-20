@@ -25,8 +25,8 @@ def merge_bronze_silver(tbl_name):
   dlt.apply_changes(
     target = f"silver_{tbl_name}",
     source = f"bronze_{tbl_name}",
-    keys = ["payment_intent_id"],
-    sequence_by = F.col("updated"),
+    keys = ["customer_id"],
+    sequence_by = F.col("operation_date"),
     stored_as_scd_type = 1
   )
 
